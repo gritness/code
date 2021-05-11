@@ -1,3 +1,5 @@
+# deployment config
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -20,6 +22,11 @@ spec:
         ports:
         - containerPort: 8081
         env:
+        - name: ME_CONFIG_MONGODB_SERVER
+          valueFrom: 
+            configMapKeyRef:
+              name: mongodb-configmap
+              key: database_url
         - name: ME_CONFIG_MONGODB_ADMINUSERNAME
           valueFrom:
             secretKeyRef:
@@ -30,11 +37,9 @@ spec:
             secretKeyRef:
               name: mongodb-secret
               key: mongo-root-password
-        - name: ME_CONFIG_MONGODB_SERVER
-          valueFrom: 
-            configMapKeyRef:
-              name: mongodb-configmap
-              key: database_url
+
+# service config
+
 ---
 apiVersion: v1
 kind: Service
@@ -43,9 +48,9 @@ metadata:
 spec:
   selector:
     app: mongo-express
-  type: LoadBalancer  
+  type: LoadBalancer  # use this type to make it external service
   ports:
     - protocol: TCP
       port: 8081
       targetPort: 8081
-      nodePort: 30000
+      nodePort: 30000 # use this nodePort between 30000-32767 to make it an external service
