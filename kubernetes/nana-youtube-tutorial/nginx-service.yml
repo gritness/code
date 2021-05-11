@@ -1,0 +1,13 @@
+# minimum config for deployment
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx # to connect deployment or service to pod the labels/selector needs to match
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

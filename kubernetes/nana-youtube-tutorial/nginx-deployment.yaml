@@ -1,0 +1,25 @@
+# minimum config for deployment
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels: # to connect deployment or service to pod the labels/selector needs to match
+    app: nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+
+# blueprint for pod
+  template:
+    metadata:
+      labels: # to connect deployment or service to pod the labels/selector needs to match
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.16
+        ports:
+        - containerPort: 8080
