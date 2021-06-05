@@ -24,9 +24,35 @@ cp /etc/seven/mm-backgroundservices-mmtonlinegty.config.xml /home/mmt/deploy/bac
 yes | cp -R /opt/seven/mm-backgroundservices-mmtonlinegty /home/mmt/deploy/background_services/opt/seven/
 
 echo "Copia Batch_Embossing"
+cp /etc/init.d/mm-interfaceexternal-batch-embossing /home/mmt/deploy/batch_proxy/etc/init.d/
+cp /etc/seven/mm-interfaceexternal-batch-embossing.config.xml /home/mmt/deploy/batch_proxy/etc/seven/
+yes | cp -R /opt/seven/mm-interfaceexternal-batch-embossing /home/mmt/deploy/batch_proxy/opt/seven/
+
 echo "Copia Batch_Proxy"
+cp /etc/init.d/mm-interfaceexternal-batch-proxy /home/mmt/deploy/batch_proxy/etc/init.d/
+cp /etc/seven/mm-interfaceexternal-batch-proxy.config.xml /home/mmt/deploy/batch_proxy/etc/seven/
+yes | cp -R /opt/seven/mm-interfaceexternal-batch-proxy /home/mmt/deploy/batch_proxy/opt/seven/
+
 echo "Copia DMS_Services"
+cp /etc/seven/DMSServices.config.xml /home/mmt/deploy/dms/etc/seven
+cp /opt/wildfly/standalone/deployments/DMS_Services.war /home/mmt/deploy/dms/opt/wildfly/standalone/deployments/
+
 echo "Copia Email"
+cp /etc/init.d/mm-interfaceexternal-email /home/mmt/deploy/email/etc/init.d/
+cp /etc/seven/mm-interfaceexternal-email.config.xml /home/mmt/deploy/email/etc/seven/
+yes | cp -R /opt/seven/mm-interfaceexternal-email /home/mmt/deploy/email/opt/seven/
+
 echo "Copia ISO_Router"
+cp /etc/init.d/onipro-mm-mmtisorouter /home/mmt/deploy/iso_router/etc/init.d/
+cp /etc/seven/mm-mmtisorouter.config.xml /home/mmt/deploy/iso_router/etc/seven/
+yes | cp -R /opt/seven/mm-backgroundservices-policies /home/mmt/deploy/iso_router/opt/seven/
+
 echo "Copia Policies"
+cp /etc/init.d/mm-backgroundservices-policies /home/mmt/deploy/policies/etc/init.d/
+cp /etc/seven/mm-backgroundservices-policies.config.xml /home/mmt/deploy/policies/etc/seven/
+yes | cp -R /opt/seven/mm-backgroundservices-policies /home/mmt/deploy/policies/opt/seven/
+
 echo "Copia SMS"
+cp /etc/init.d/mm-interfaceexternal-ws-smsgty /home/mmt/deploy/sms/etc/init.d/
+cp /etc/seven/mm-interfaceexternal-ws-smsgty.config.xml /home/mmt/deploy/sms/etc/seven/
+yes | cp -R /opt/seven/mm-interfaceexternal-ws-smsgty /home/mmt/deploy/sms/opt/seven/
