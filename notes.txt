@@ -1,1 +1,67 @@
-cucucuc
+open satisfactory.boquetas.com
+
+/var/lib/rundeck/logs
+
+https://www.bellesa.co/videos/4509/helping-hand
+
+obfuscate
+OBF:1gz81opn1vgz1x8a1saj1xtl1ly11m051xtx1sar1x8k1vfv1orn1h3e
+crypt
+CRYPT:rigrQDce7ffWU
+md5
+MD5:0f1a652ae57c8d4a6f9f760a8c1ffd6b
+
+---
+
+select * from izipay."transaction" t where t.nsu = '160365' order by id desc limit 5;
+
+select nsu,t.auth_code ,t.date_sell,hour_sell, * from izipay."transaction" t where t.nsu = '166598' order by id desc limit 5;
+
+---
+
+ telnet  prod-onibank-database.ckbrqcpayw9i.sa-east-1.rds.amazonaws.com 5432
+
+Identifier: prod-onibank-database.ckbrqcpayw9i.sa-east-1.rds.amazonaws.com
+User: postgres
+Password: Kf7FPSbUsjfp9XFP
+
+easysms?user=mm_core;password=s3v3n1tc!
+
+    <add name="ApplicationServices" connectionString="jdbc:postgresql://prod-onibank-database.ckbrqcpayw9i.sa-east-1.rds.amazonaws.com:5432/easysms?user=mm_core;password=s3v3n1tc!" providerName="System.Data.SqlClient" />
+
+    <add name="ApplicationServicesRead" connectionString="jdbc:postgresql://prod-onibank-database.ckbrqcpayw9i.sa-east-1.rds.amazonaws.com:5432/easysms?user=mm_core;password=s3v3n1tc!" providerName="System.Data.SqlClient" />
+
+---
+
+dev | 54.161.197.74
+
+onipro_
+onibank_
+
+<VirtualHost *:80>
+ServerName gtw.onibank.com.br
+ServerAlias gtw.onibank.com.br
+
+ ProxyPreserveHost on
+RewriteEngine on
+RewriteRule ^/$ https://gtw.onibank.com.br/swagger/index.jsp [NC]
+ProxyPass / http://localhost:8080/EzSuiteOnlineAcquire/
+ProxyPassReverse / http://gtw.onibank.com.br
+</VirtualHost>
+
+
+
+<VirtualHost *:80>
+ServerName bo.onipro.com.br
+ServerAlias bo.onipro.com.br
+
+ ProxyPreserveHost on
+RewriteEngine on
+RewriteRule ^/$ http://bo.onipro.com.br/DMS_Services/ [NC]
+ProxyPass / http://localhost:8080/
+ProxyPassReverse / http://bo.onipro.com.br/
+
+ ErrorLog logs/mmt.com-error_log
+CustomLog logs/mmt.com-access_log common
+
+</VirtualHost>

@@ -4,11 +4,22 @@
 			"path": "..\\..\\work\\7mmt\\code\\atualizacao-onipro"
 		},
 		{
-			"name": "mmt-onipro",
 			"path": "..\\..\\work\\7mmt\\code\\mmt-onipro"
 		},
 		{
 			"path": "."
+		},
+		{
+			"name": "configuracao-mmt",
+			"path": "..\\..\\work\\7mmt\\code\\configuracao-mmt"
+		},
+		{
+			"name": "homologacao-mmt",
+			"path": "..\\..\\work\\7mmt\\code\\homologacao-mmt"
+		},
+		{
+			"name": "knowledge-base",
+			"path": "..\\..\\work\\7mmt\\code\\knowledge-base"
 		}
 	],
 	"settings": {}
