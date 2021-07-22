@@ -65,3 +65,30 @@ ProxyPassReverse / http://bo.onipro.com.br/
 CustomLog logs/mmt.com-access_log common
 
 </VirtualHost>
+
+<connectionStrings>
+        <add name="ApplicationServices" connectionString="jdbc:postgresql://[banco-de-dados]:5432/easysms?user=[usuário-de-conexão];password=[senha-de-conexão]" providerName="System.Data.SqlClient" />
+        <add name="ApplicationServicesRead" connectionString="jdbc:postgresql://[banco-de-dados]:5432/easysms?user=[usuário-de-conexão];password=[senha-de-conexão]" providerName="System.Data.SqlClient" />
+</connectionStrings>
+
+<connectionStrings>
+
+      <add name="ApplicationServices" connectionString="jdbc:postgresql://[banco-de-dados]:5432/easysms?user=[usuário-de-conexão];password=[senha-de-conexão]" providerName="System.Data.SqlClient" />
+
+      <add name="ApplicationServicesRead" connectionString="jdbc:[banco-de-dados]:5432/easysms?user=[usuário-de-conexão];password=[senha-de-conexão]" providerName="System.Data.SqlClient" />
+
+      <add name="ApplicationServicesSlave" connectionString="jdbc:[banco-de-dados]:5432/easysms?user=[usuário-de-conexão];password=[senha-de-conexão]" providerName="System.Data.SqlClient" />
+
+      <add name="HomologationUpgradeSource" connectionString="jdbc:postgresql://[banco-de-dados]:5432/easysms?user=[usuário-de-conexão];password=[senha-de-conexão]" providerName="System.Data.SqlClient" />
+
+</connectionStrings>
+
+<connectionStrings>
+
+      <add name="ApplicationServices" connectionString="jdbc:postgresql://[banco-de-dados]:5432/easysms?user=[usuário-de-conexão];password=[senha-de-conexão]" providerName="System.Data.SqlClient" />
+
+      <add name="ApplicationServicesRead" connectionString="jdbc:postgresql://[banco-de-dados]:5432/easysms?user=[usuário-de-conexão];password=[senha-de-conexão]" providerName="System.Data.SqlClient" />
+
+      <add name="ApplicationServicesSlave" connectionString="jdbc:postgresql://[banco-de-dados]:5432/easysms?user=[usuário-de-conexão];password=[senha-de-conexão]" providerName="System.Data.SqlClient" />
+
+</connectionStrings>
