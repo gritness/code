@@ -6,6 +6,10 @@
 		{
 			"name": "knowledge-base",
 			"path": "..\\..\\work\\7mmt\\code\\knowledge-base"
+		},
+		{
+			"name": "onipro",
+			"path": "..\\..\\work\\7mmt\\code\\onipro"
 		}
 	],
 	"settings": {}
