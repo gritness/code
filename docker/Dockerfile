@@ -31,3 +31,4 @@ EXPOSE 80 443
 # required: run this command when container is launched
 # only one CMD allowed, so if there are multiple, last one wins
 CMD ["nginx", "-g", "daemon off;"]
+###
