@@ -1,5 +1,3 @@
-# deployment config
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -37,8 +35,6 @@ spec:
             secretKeyRef:
               name: mongodb-secret
               key: mongo-root-password
-
-# service config
 
 ---
 apiVersion: v1
