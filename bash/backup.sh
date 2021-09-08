@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BACKUPTIME=`date +%F-%T`
+BACKUPTIME=`date +%Y%m%d%H%M%S`
 
 SOURCEFOLDER1=/etc/seven
 
