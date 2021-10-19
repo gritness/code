@@ -63,7 +63,7 @@ yes | rm /etc/pgbouncer/pgbouncer.ini
 vim /etc/pgbouncer/pgbouncer.ini
 a
 [databases]
-* = host=prod-onipay-database.cnejnmn12mgk.sa-east-1.rds.amazonaws.com port=5432 #<--- ajustar RDS
+* = host=[server] port=5432
 
 [pgbouncer]
 logfile = /var/log/pgbouncer/pgbouncer.log
@@ -80,7 +80,7 @@ server_reset_query_always = 1
 ignore_startup_parameters = extra_float_digits
 max_client_conn = 200
 default_pool_size = 20
-#log_connections = 1
+#log_connections = 0
 ## enable/start
 systemctl enable pgbouncer.service
 systemctl start pgbouncer.service
