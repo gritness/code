@@ -37,6 +37,8 @@ systemctl start wildfly
 yum install libcrypto.so.1.1 libssl.so.1.1 -y
 rpm -ivh https://repo.zabbix.com/zabbix/5.4/rhel/8/x86_64/zabbix-agent-5.4.5-1.el8.x86_64.rpm
 yum install zabbix-agent -y
+cd /etc/zabbix/zabbix_agentd.d
+curl https://raw.githubusercontent.com/catonrug/zabbix_agentd.d/master/service_monitoring_via_systemctl.conf > service_monitoring_via_systemctl.conf
 ## config
 yes | rm /etc/zabbix/zabbix_agentd.conf
 vim /etc/zabbix/zabbix_agentd.conf
