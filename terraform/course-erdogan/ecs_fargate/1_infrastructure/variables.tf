@@ -1,0 +1,21 @@
+variable region {
+  default     = "us-east-1"
+  description = "aws region"
+}
+
+variable "vpc_cidr" {
+  default     = "10.0.0.0/16"
+  description = "vpc cidr block"
+}
+
+variable "public_subnet_1_cidr" {
+    description = "public subnet 1 cidr"
+}
+
+variable "public_subnet_2_cidr" {
+    description = "public subnet 2 cidr"
+}
+
+variable "public_subnet_3_cidr" {
+    description = "public subnet 3 cidr"
+}

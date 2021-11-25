@@ -1,24 +1,24 @@
 #!/bin/bash
 
-# httpd install 
+# httpd 
 yum install httpd -y
 systemctl enable httpd.service
 systemctl start httpd.service
 
-# java install
+# java
 yum install java-1.8.0-openjdk-devel -y
 
-# telnet install
+# telnet
 yum install telnet -y
 
-# wget install
+# wget
 yum install -y wget
 
 # folders config
 mkdir /var/log/seven && mkdir /opt/seven && mkdir /etc/seven && mkdir /etc/httpd/conf/vhosts/ && mkdir /etc/wildfly/ && mkdir /opt/wildfly
 chmod -R 777 /var/log/seven && chmod -R 777 /opt/seven && chmod -R 777 /etc/seven && chmod -R 777 /etc/httpd/conf/vhosts/ && chmod -R 777 /etc/wildfly/ && chmod -R 777 /opt/wildfly
 
-# wildfly install
+# wildfly
 groupadd -r wildfly
 useradd -r -g wildfly -d /opt/wildfly -s /sbin/nologin wildfly
 wget -P / https://cf-templates-8ck1lkjy15q-us-east-1.s3.amazonaws.com/wildfly.zip 
@@ -33,12 +33,11 @@ systemctl daemon-reload
 systemctl enable wildfly
 systemctl start wildfly
 
-# zabbix agent install
+# zabbix-agent
+yum install polkit -y
 yum install libcrypto.so.1.1 libssl.so.1.1 -y
 rpm -ivh https://repo.zabbix.com/zabbix/5.4/rhel/8/x86_64/zabbix-agent-5.4.5-1.el8.x86_64.rpm
 yum install zabbix-agent -y
-cd /etc/zabbix/zabbix_agentd.d
-curl https://raw.githubusercontent.com/catonrug/zabbix_agentd.d/master/service_monitoring_via_systemctl.conf > service_monitoring_via_systemctl.conf
 ## config
 yes | rm /etc/zabbix/zabbix_agentd.conf
 vim /etc/zabbix/zabbix_agentd.conf
@@ -53,11 +52,12 @@ Hostname=SEVEN-ONIPAY-prod_onipay_bo_wildfly_01 # <---- ajustar conforme padrao
 HostMetadata=Linux      RD7LTgQsqJCdbnetdzhKqmzNXtL3N4PtCa3c36Am7GKQ9JqCJP
 Include=/etc/zabbix/zabbix_agentd.d/
 Timeout=8
+EnableRemoteCommands=1
 ## enable/start
 systemctl enable zabbix-agent.service
 systemctl start zabbix-agent.service
 
-# pgbouncer install
+# pgbouncer
 yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 yum -y install pgbouncer
 ## config
@@ -86,3 +86,29 @@ default_pool_size = 20
 ## enable/start
 systemctl enable pgbouncer.service
 systemctl start pgbouncer.service
+
+# date
+yum erase 'ntp*'
+yum install chrony -y
+vim /etc/sysconfig/clock
+a
+ZONE="Brazil/East"
+ln -sf /usr/share/zoneinfo/Brazil/East /etc/localtime
+systemctl enable chronyd.service
+systemctl start chronyd.service
+
+# hostname
+vim /etc/cloud/cloud.cfg
+a
+preserve_hostname: true
+
+# old logs
+
+mkdir /var/logs/seven/old
+crontab -e
+
+# movimentacao de arquivos de log
+0 3 * * * mv /var/log/seven/*.gz /var/log/seven/old
+
+# logz.io [wip]
+
