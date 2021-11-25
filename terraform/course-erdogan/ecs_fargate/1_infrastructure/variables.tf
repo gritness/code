@@ -19,3 +19,16 @@ variable "public_subnet_2_cidr" {
 variable "public_subnet_3_cidr" {
     description = "public subnet 3 cidr"
 }
+
+variable "private_subnet_1_cidr" {
+  description = "private subnet 1 cidr"  
+}
+
+variable "private_subnet_2_cidr" {
+  description = "private subnet 2 cidr"
+}
+
+variable "private_subnet_3_cidr" {
+  description = "private subnet 3 cidr"
+}
+
