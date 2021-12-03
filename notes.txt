@@ -14,7 +14,31 @@ tar -cpzf $DESTINATION $SOURCEFOLDER1 $SOURCEFOLDER2 $SOURCEFOLDER3
 
 -----
 
-teste
+- origem
 
+conta: Onipro-DEV
 
+instância:
+i-0d3390f06ee625f2f
 
+- destino: 
+
+conta: Onibank-DEV
+
+Favor manter o mesmo nome na instância.
+
+region: sa-east-1c
+subnet: private
+ipv4 cidr: 10.101.133.0/25
+public ip: no
+usuários: os usuários que precisarão dos acessos já estão configurados nas instâncias origem.
+
+SGs:
+
+SG-ONIBANK-DEV
+usar as mesmas regras configuradas nesta SG (conta Onibank-HML):
+https://sa-east-1.console.aws.amazon.com/ec2/v2/home?region=sa-east-1#SecurityGroup:securityGroupId=sg-04c37b24e1c51a2f3
+
+SG-IPSENSE-ADM
+usar as mesmas regras configuradas nesta SG:
+https://sa-east-1.console.aws.amazon.com/ec2/v2/home?region=sa-east-1#SecurityGroup:securityGroupId=sg-0513735beb2653f61
